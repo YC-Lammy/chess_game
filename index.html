@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+
+    html{
+      height: 100%;
+      width: 100%;
+    }
+    body{
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      margin: 0;
+      text-align: center;
+      align-content: center;
+    }
+    img{
+      width: calc(100%);
+      height: 6rem;
+      object-fit: scale-down;
+    }
+
+    td{
+      height: 12.5%;
+      text-align: center;
+    }
+    .cell{
+      height: 100%;
+      background-color:forestgreen;
+      align-content: center;
+      text-align: center;
+    }
+
+    .chess{
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+
+    .whiteChess{
+      fill :"white";
+    }
+
+    .blackChess{
+      fill:"black";
+    }
+
+    #board{
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      table-layout: fixed;
+    }
+    #board .grid_row{
+      width: 100%;
+      height: 12.5%;
+      max-height: 12.5%;
+    }
+  </style>
+  <body>
+    <template id="grid_cell">
+      <td draggable="false">
+        <div class="cell" draggable="false"></div>
+      </td>
+    </template>
+
+    <template id="grid_cell_hint">
+      <div>
+        <svg viewbox="0 0 10 10" width="100%",height="100%">
+          <circle cx="5" cy="5" r="2" fill="grey"></circle>
+        </svg>
+      </div>
+      
+    </template>
+
+    <template id="pawn">
+      <div class="chess">
+        <svg viewbox="0 0 100 100" width="100%" height="100%">
+          <circle cx= "50" cy="25"r="18"></circle>
+          <polygon points="40,50 60,50 70,80 30,80"></polygon>
+          <ellipse cx="50" cy="46" rx="20" ry="8"></ellipse>
+          <ellipse cx="50" cy="80" rx="24" ry="9"></ellipse>
+          <ellipse cx="50" cy="90" rx="26" ry="9"></ellipse>
+        </svg>
+      </div>
+    </template>
+
+    <template id="rook">
+      <div class="chess">
+        <svg viewbox="0 0 100 100" width="100%" height="100%">
+          <polygon points="25,12 35,12 35,24 45,24 45,12 55,12 55,24 65,24 65,12 75,12 75,40 25,40"></polygon>
+          <ellipse cx="50" cy="46" rx="20" ry="8"></ellipse>
+          <polygon points="40,50 60,50 70,80 30,80"></polygon>
+          <ellipse cx="50" cy="80" rx="24" ry="9"></ellipse>
+          <ellipse cx="50" cy="90" rx="26" ry="9"></ellipse>
+        </svg>
+      </div>
+     
+    </template>
+
+    <template id="knight">
+      <div class="chess">
+        <svg viewbox="0 0 100 100" width="100%" height="100%">
+          <polygon points="40,50 60,50 70,80 30,80"></polygon>
+          <ellipse cx="50" cy="80" rx="24" ry="9"></ellipse>
+          <ellipse cx="50" cy="90" rx="26" ry="9"></ellipse>
+        </svg>
+      </div>
+    </template>
+
+    <template id="bishop">
+      <div class="chess">
+        <svg viewbox="0 0 100 100" width="100%" height="100%">
+          <polygon points="40,50 60,50 70,80 30,80"></polygon>
+          <ellipse cx="50" cy="80" rx="24" ry="9"></ellipse>
+          <ellipse cx="50" cy="90" rx="26" ry="9"></ellipse>
+        </svg>
+      </div>
+    </template>
+
+    <template id="queen">
+      <div class="chess">
+        <svg viewbox="0 0 100 100" width="100%" height="100%">
+          <polygon points="20,30 35,50 34,24 45,50 50,20 55,50 66,24 65,50 80,30 67,80 33,80"></polygon>
+          <polygon points="40,50 60,50 70,80 30,80"></polygon>
+          <ellipse cx="50" cy="80" rx="24" ry="9"></ellipse>
+          <ellipse cx="50" cy="90" rx="26" ry="9"></ellipse>
+          <circle cx= "20" cy="32"r="4"></circle>
+          <circle cx= "34" cy="26"r="4"></circle>
+          <circle cx= "50" cy="22"r="4"></circle>
+          <circle cx= "66" cy="26"r="4"></circle>
+          <circle cx= "80" cy="32"r="4"></circle>
+        </svg>
+      </div>
+    </template>
+
+    <template id="king">
+      <div class="chess">
+        <svg viewbox="0 0 100 100" width="100%" height="100%">
+          <polygon points="40,50 60,50 70,80 30,80"></polygon>
+          <ellipse cx="50" cy="80" rx="24" ry="9"></ellipse>
+          <ellipse cx="50" cy="90" rx="26" ry="9"></ellipse>
+        </svg>
+      </div>
+    </template>
+
+    <table id="board" draggable="false">
+      <tr class="grid_row" id="row0" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row1" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row2" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row3" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row4" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row5" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row6" draggable="false">
+      </tr>
+      <tr class="grid_row" id="row7" draggable="false">
+      </tr>
+    </table>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
